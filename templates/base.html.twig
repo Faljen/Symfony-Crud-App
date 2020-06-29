@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Symfony CRUD{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<h1 style="text-align: center">CRUD APP SYMFONY by Faljen</h1>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+{% if people is defined %}
+    <h3>Special thanks to:</h3>
+    <p>
+    {% for person in people %}
+        <p>{{ person }}</p>
+    {% else %}
+        <p>Bez pozdrowień na dzień dziesiejszy :(</p>
+    {% endfor %}
+{% endif %}
+</p>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 style="text-align: center">Użytkownicy w bazie:</h1>
+    <h2 style="text-align: center">
+        {% for user in users %}
+            {{ user.name }} {{ user.surname }}
+            <button><a style="text-decoration: none" href="{{ path('app_user_delete', {'id': user.id}) }}">Usuń</a>
+                <button style="margin-left: 8px"><a style="text-decoration: none"
+                                                    href="{{ path('app_user_edit', {'id': user.id}) }}">Edytuj</a>
+                </button>
+            </button>
+            <br>
+        {% else %}
+            Nie ma użytkowników...
+        {% endfor %}
+    </h2>
+    <h3 style="text-align: center">
+        <a href="{{ path('app_user_create') }}">Dodaj nowego użytkownika</a>
+    </h3>
+{% endblock %}

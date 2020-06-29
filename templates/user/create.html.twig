@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1 style="text-align: center">Dodaj usera:</h1>
+
+    <h2 style="text-align: center">
+        {{ form(form) }}
+    </h2>
+    <h3 style="text-align: center">
+        <a href="{{ path('userlist') }}">Wyświetl listę użytkowników</a>
+    </h3>
+{% endblock %}

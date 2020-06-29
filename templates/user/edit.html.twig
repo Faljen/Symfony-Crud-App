@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1 style="text-align: center">Edytuj użytkownika o ID {{ user.id }}:</h1>
+
+    <form style="text-align: center" method="post">
+        Imię: <br>
+        <input name="name" value="{{ user.name }}"><br>
+        Nazwisko: <br>
+        <input name="surname" value="{{ user.surname }}"><br><br>
+        <input type="submit" value="Edytuj!">
+    </form>
+    <h3 style="text-align: center">
+        <a href="{{ path('userlist') }}">Wyświetl listę użytkowników</a>
+    </h3>
+{% endblock %}

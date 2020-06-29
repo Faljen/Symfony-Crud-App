@@ -1,3 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+#app_currentTime_showDateTime:
+#  path: /time
+#  controller: App\Controller\CurrentTime::showDateTime

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 style="text-align: center">Katgorie w bazie:</h1>
+    <h2 style="text-align: center">
+        {% for category in categories %}
+            {{ category.id }}  {{ category.name }}
+            <button><a style="text-decoration: none" href="{{ path('app_user_delete', {'id': category.id}) }}">Usuń</a>
+                <button style="margin-left: 8px"><a style="text-decoration: none"
+                                                    href="{{ path('app_user_edit', {'id': category.id}) }}">Edytuj</a>
+                </button>
+            </button>
+            <br>
+        {% else %}
+            Nie ma kategorii...
+        {% endfor %}
+    </h2>
+    <h3 style="text-align: center">
+        <a href="{{ path('app_category_create') }}">Dodaj nową kategorię</a>
+    </h3>
+{% endblock %}
