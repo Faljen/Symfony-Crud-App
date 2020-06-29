@@ -4,6 +4,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Users
@@ -22,12 +23,16 @@ class Users
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Imię nie może być puste")
+     * @Assert\Length(min="3", max="13")
      * @var string
      * @ORM\Column(name="username", type="string")
      */
     private $name;
 
     /**
+     * @Assert\NotBlank(message="Nazwisko nie może być puste")
+     * @Assert\Length(min="3", max="20")
      * @var string|null
      * @ORM\Column(name="surname", type="string", nullable=true)
      */
@@ -38,6 +43,14 @@ class Users
      * @ORM\Column(type="boolean")
      */
     private $dudaVoter;
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\NotBlank(message="To pole nie może być puste")
+     * @Assert\Country()
+     */
+    private $country;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Category")
@@ -93,7 +106,7 @@ class Users
     /**
      * @return Category
      */
-    public function getCategory(): Category
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
@@ -120,6 +133,22 @@ class Users
     public function setDudaVoter(bool $dudaVoter): void
     {
         $this->dudaVoter = $dudaVoter;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string|null $country
+     */
+    public function setCountry(?string $country): void
+    {
+        $this->country = $country;
     }
 
 

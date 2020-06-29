@@ -4,6 +4,9 @@
     <h2 style="text-align: center">
         {% for user in users %}
             {{ user.name }} {{ user.surname }}
+            {% if user.category %}
+                * {{ user.category.name }} *
+            {% endif %}
             <button><a style="text-decoration: none" href="{{ path('app_user_delete', {'id': user.id}) }}">Usuń</a>
                 <button style="margin-left: 8px"><a style="text-decoration: none"
                                                     href="{{ path('app_user_edit', {'id': user.id}) }}">Edytuj</a>

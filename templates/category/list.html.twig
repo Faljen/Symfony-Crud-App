@@ -4,10 +4,9 @@
     <h2 style="text-align: center">
         {% for category in categories %}
             {{ category.id }}  {{ category.name }}
-            <button><a style="text-decoration: none" href="{{ path('app_user_delete', {'id': category.id}) }}">Usuń</a>
-                <button style="margin-left: 8px"><a style="text-decoration: none"
-                                                    href="{{ path('app_user_edit', {'id': category.id}) }}">Edytuj</a>
-                </button>
+            <button><a style="text-decoration: none"
+                       href="{{ path('app_category_delete', {'id': category.id}) }}">Usuń</a
+            </button>
             </button>
             <br>
         {% else %}
